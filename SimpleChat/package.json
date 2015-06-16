@@ -1,0 +1,11 @@
+{
+  "name": "SimpleChat",
+  "version": "0.0.1",
+  "description": "my first simple chat application",
+  "dependencies" : {
+    "socket.io": "1.3.5",
+    "express": "4.12.4",
+    "jquery": "2.1.4",
+    "knockout": "3.3.0"
+  }
+}

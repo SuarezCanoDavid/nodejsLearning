@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Socket.IO chat</title>
+    <link rel="stylesheet" type="text/css" href="/static/stylesheets/index.css">
+    <script src="/static/javascripts/socket.io.js"></script>
+    <script src="/static/javascripts/jquery.min.js"></script>
+    <script src="/static/javascripts/ViewModels/ChatRoom/ChatRoomViewModel.js"></script>
+    <script src="/static/javascripts/knockout-latest.js"></script>
+    <script>
+      $(document).ready(function() {
+        var socket = io();
+        ko.applyBindings(new ChatRoomViewModel(socket));
+      });
+      
+
+      /*$(document).ready(function() {
+        var userMessage = $('#m');
+        var messages = $('#messages');
+
+        $('#myForm').submit(function() {
+          socket.emit('chat message', {
+            text: userMessage.val()
+          });
+
+          userMessage.val('');
+
+          return false;
+        });
+
+        socket.on('chat message', function(message) {
+          messages.append($('<li>').text(message.text));
+        });
+      });*/
+
+    </script>
+  </head>
+  <body>
+    <ul data-bind="foreach: messages">
+      <li><span data-bind="text: $data"></span></li>
+    </ul>
+    <!--ul id="messages">
+    </ul>
+    <form id="myForm" action="">
+      <input id="m" autocomplete="off"/>
+      <button>Send</button>
+    </form-->
+
+    <div id="myForm">
+      <input id="m" autocomplete="off" data-bind="value: message"/>
+      <button data-bind="click: emitMessage">Send</button>
+    </div>>
+  </body>
+</html>
